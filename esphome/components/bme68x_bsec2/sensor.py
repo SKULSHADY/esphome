@@ -8,6 +8,7 @@ from esphome.const import (
     CONF_PRESSURE,
     CONF_SAMPLE_RATE,
     CONF_TEMPERATURE,
+    DEVICE_CLASS_AQI,
     DEVICE_CLASS_ATMOSPHERIC_PRESSURE,
     DEVICE_CLASS_CARBON_DIOXIDE,
     DEVICE_CLASS_HUMIDITY,
@@ -34,7 +35,6 @@ CONF_CO2_EQUIVALENT = "co2_equivalent"
 CONF_IAQ = "iaq"
 CONF_IAQ_STATIC = "iaq_static"
 ICON_ACCURACY = "mdi:checkbox-marked-circle-outline"
-UNIT_IAQ = "IAQ"
 
 TYPES = [
     CONF_TEMPERATURE,
@@ -84,15 +84,15 @@ CONFIG_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_IAQ): sensor.sensor_schema(
-            unit_of_measurement=UNIT_IAQ,
             icon=ICON_GAUGE,
             accuracy_decimals=0,
+            device_class=DEVICE_CLASS_AQI,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_IAQ_STATIC): sensor.sensor_schema(
-            unit_of_measurement=UNIT_IAQ,
             icon=ICON_GAUGE,
             accuracy_decimals=0,
+            device_class=DEVICE_CLASS_AQI,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_IAQ_ACCURACY): sensor.sensor_schema(
