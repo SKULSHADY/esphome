@@ -49,8 +49,8 @@ void XPT2046Component::update_touches() {
   disable();
 
   if (touch) {
-    x_raw = best_two_avg(data[1], data[3], data[5]);
-    y_raw = best_two_avg(data[0], data[2], data[4]);
+    y_raw = best_two_avg(data[1], data[3], data[5]);
+    x_raw = best_two_avg(data[0], data[2], data[4]);
 
     ESP_LOGD(TAG, "Touchscreen Update [%d, %d], z = %d", x_raw, y_raw, z_raw);
 
